@@ -17,6 +17,13 @@ This tutorial describes the regex, or sequence of characters that defines the sp
 
 ## Regex Components
 
+Components of a regex matching a URL include:
+* Anchors ```^``` ```$```
+* Quantifiers ```*``` ```+``` ```?``` ```{}```
+* Bracket expressions ```[]```
+* Character classes ```\d``` ```\w``` ```.```
+* Grouping and capturing ```()```
+
 ### Anchors
 
 ### Quantifiers
