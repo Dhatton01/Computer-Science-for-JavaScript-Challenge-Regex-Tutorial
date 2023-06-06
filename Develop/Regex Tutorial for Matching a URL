@@ -8,6 +8,13 @@ This tutorial describes the regex, or sequence of characters that defines the sp
 
 ## Table of Contents
 
+- [Anchors](#anchors)
+- [Quantifiers](#quantifiers)
+- [Bracket Expressions](#bracket-expressions)
+- [Character Classes](#character-classes)
+- [Grouping and Capturing](#grouping-and-capturing)
+
+
 ## Regex Components
 
 ### Anchors
