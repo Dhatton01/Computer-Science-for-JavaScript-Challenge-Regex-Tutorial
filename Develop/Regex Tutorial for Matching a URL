@@ -1,10 +1,10 @@
 # Regex Tutorial for Matching a URL
 
-A regular expression is a pattern that is matched against a subject string from left to right. Regular expressions are used to replace text within a string, validate forms, extract a substring from a string based on a pattern match, and so much more. The term "regular expression" is a mouthful, so you will usually find the term abbreviated to "regex" or "regexp". This tutorial explains how a regex for matching a URL functions, breaking down each component of the expression and describing what it does.
+This tutorial aims to provide an understanding of the regular expression, a pattern used to match against a subject string in a left-to-right fashion. Regular expressions serve various purposes such as text replacement, form validation, substring extraction based on pattern matching, and more. To avoid the verbosity of the term "regular expression," it is commonly abbreviated as "regex" or "regexp." This tutorial focuses on explaining the functionality of a regex designed for matching a URL. Each component of the expression is dissected and its purpose is described.
 
 ## Summary
 
-This tutorial describes the regex, or sequence of characters that defines the specific search pattern of a URL, ```/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/```. The characters used in this specific search pattern are called metacharacters, which instead of indicating a literal character, indicates a more generalized pattern. Regex are frequently used to validate input, as when included in code or search algorithms, regex can be used to find certain patterns of characters in a string, or find and replace a character or sequence of characters within a string.
+This tutorial elucidates the regex, a sequence of characters that defines the specific search pattern for matching a URL: /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/. These characters, known as metacharacters, go beyond representing literal characters and instead represent more generalized patterns. Regex is frequently employed to validate input, whether it is utilized in code or search algorithms. With regex, one can identify specific patterns of characters within a string or locate and replace a particular character or sequence of characters within a string.
 
 ## Table of Contents
 
@@ -25,6 +25,9 @@ Components of a regex matching a URL include:
 * Grouping and capturing ```()```
 
 ### Anchors
+The caret symbol `^` serves as a check to determine if the matched character is the initial character of the input, while the dollar sign `$` acts as a check to verify if the matched character is the final character of the input string.
+
+Within the URL regular expression, we observe that two slashes appear at the start and end, as exemplified by `/wlk/`. These slashes function as markers or boundaries that indicate the commencement and conclusion of the regular expression pattern. Subsequently, we encounter `^` and `$` symbols at these respective ends, signifying the presence of the search pattern enclosed between these characters.
 
 ### Quantifiers
 
