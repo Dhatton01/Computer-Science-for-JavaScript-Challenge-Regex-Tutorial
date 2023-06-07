@@ -48,8 +48,19 @@ Square brackets serve the purpose of defining character sets in regular expressi
 
 ### Character Classes
 
-The character class \d corresponds to a single character that represents a digit, ranging from 0 to 9.
 
-The character class \w represents a single word character, which can be either alphanumeric or an underscore.
+The character class \d is used to match a single character that is a digit, specifically ranging from 0 to 9.
+
+On the other hand, the character class \w matches a single word character, which can be either alphanumeric or an underscore.
+
+The dot character . is a metacharacter that matches any character. However, when escaped with a backslash, as in \. within a regex, it is interpreted as a literal dot character '.'.
 
 ### Grouping and Capturing
+
+The first capturing group in the URL regex, `(https?:\/\/)`, consists of a pattern that matches an "h", followed by "t", "t", "p", and an optional "s" character. It is further followed by a ":", two escaped "/", and a `?` quantifier indicating 0 or 1 occurrence of the preceding capturing group. This allows for the URL to potentially include or exclude "http://" or "https://".
+
+The second capturing group, `([\da-z\.-]+)`, utilizes a bracketed character set `[\da-z\.-]` to match any character including a digit `\d`, a case-sensitive character from a to z, an escaped ".", and/or a "-". This character set is then followed by a `+` quantifier, indicating 1 or more occurrences of the preceding character set. Additionally, this second capturing group is succeeded by an escaped ".", indicating that the URL must contain at least 1 or more characters from the bracketed character set followed by a ".". Examples of this capturing group include "google." or "www.google." in the URL "www.google.com".
+
+The third capturing group, `([a-z\.]{2,6})`, comprises a bracketed character set `[a-z\.]` that matches any case-sensitive character from a to z, along with an escaped ".". This set is repeated between 2 and 6 times, as indicated by the `{2,6}` quantifier. Instances of this capturing group include ".com", ".io", or ".gov" in URLs like "example.com" or "example.io".
+
+The final capturing group, `([\/\w \.-]*)`, encompasses a bracketed character set `[\/\w \.-]` that matches any character including an escaped "/", an alphanumeric or underscore word character `\w`, an escaped ".", and/or a "-". This set is followed by a `*` quantifier, signifying 0 or more occurrences of the preceding character set. The entire last capturing group is then allowed to repeat 0 or more times, as indicated by the `*` quantifier following the last capturing group. This flexibility allows for optional or multiple additions to this portion of the URL.
