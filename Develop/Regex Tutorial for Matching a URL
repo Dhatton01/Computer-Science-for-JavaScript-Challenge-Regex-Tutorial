@@ -30,9 +30,26 @@ The caret symbol `^` serves as a check to determine if the matched character is 
 Within the URL regular expression, we observe that two slashes appear at the start and end, as exemplified by `/wlk/`. These slashes function as markers or boundaries that indicate the commencement and conclusion of the regular expression pattern. Subsequently, we encounter `^` and `$` symbols at these respective ends, signifying the presence of the search pattern enclosed between these characters.
 
 ### Quantifiers
+Quantifiers are used to indicate the number of characters that should be present in a string. The * quantifier matches a string that contains 0 or more occurrences of the preceding character before the * metacharacter. For instance, wlk* matches a string that consists of wl followed by 0 or more k characters.
+
+The + quantifier matches a string that has 1 or more occurrences of the preceding character before the + metacharacter. For example, wlk+ matches a string that contains wl followed by 1 or more k characters.
+
+The ? quantifier matches a string that has 0 or 1 occurrence of the preceding character before the ? metacharacter. In the URL regex, this quantifier can be found in the first capturing group, (https?:\/\/), after the "s" character, indicating that the "s" after "http" is optional. It is also present after the first capturing group in the URL regex, /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/, to indicate that the entire first capturing group is optional. Lastly, it appears at the end of the regex, /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/, to denote the optionally escaped / at the end of the URL.
+
+The {} quantifier matches a string that contains the preceding character a specific number of times indicated within the curly brackets. For example, wlk{2} matches a string that has wl followed by exactly 2 k characters.
+
+The {} quantifier can also be used with a comma , after the number inside the curly brackets. For instance, wlk{5,} matches a string that contains wl followed by 5 or more k characters. Similarly, wlk{5,10} matches a string that has wl followed by 5 to 10 k characters.
+
+Characters can also be grouped using () to specify a particular sequence that should repeat a certain number of times, depending on the used quantifier. For example, w(lk)* matches a string that begins with w followed by 0 or more repetitions of the sequence lk. When combined with {}, w(lk){5,10} matches a string that starts with w followed by 5 to 10 repetitions of the sequence lk.
 
 ### Bracket expressions
 
+Square brackets serve the purpose of defining character sets in regular expressions. By utilizing a hyphen inside the brackets, it becomes possible to specify a range of characters. The order of the characters within the range does not impact the functionality. To illustrate, consider the regular expression [Ww]lk, which signifies either an uppercase W or lowercase w, followed by the letter l, and then the letter k.
+
 ### Character Classes
+
+The character class \d corresponds to a single character that represents a digit, ranging from 0 to 9.
+
+The character class \w represents a single word character, which can be either alphanumeric or an underscore.
 
 ### Grouping and Capturing
